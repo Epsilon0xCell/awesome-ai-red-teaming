@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# MIT License. Copyright (c) 2026 Gavin Blacklock. The list in this repo is CC0; these checks are MIT.
 # Print the certificate expiry of a host you own or are authorised to test, and days remaining.
 # Usage: ./check-tls-expiry.sh example.com [port]
 set -euo pipefail

@@ -1,6 +1,6 @@
 # Awesome AI Red Teaming
 
-[![Release](https://img.shields.io/github/v/release/Epsilon0xCell/awesome-ai-red-teaming)](https://github.com/Epsilon0xCell/awesome-ai-red-teaming/releases) [![License](https://img.shields.io/github/license/Epsilon0xCell/awesome-ai-red-teaming)](LICENSE) [![Stars](https://img.shields.io/github/stars/Epsilon0xCell/awesome-ai-red-teaming)](https://github.com/Epsilon0xCell/awesome-ai-red-teaming/stargazers)
+[![Release](https://img.shields.io/github/v/release/Epsilon0xCell/awesome-ai-red-teaming)](https://github.com/Epsilon0xCell/awesome-ai-red-teaming/releases) [![License: CC0 1.0](https://img.shields.io/badge/License-CC0_1.0-lightgrey)](LICENSE) [![Stars](https://img.shields.io/github/stars/Epsilon0xCell/awesome-ai-red-teaming)](https://github.com/Epsilon0xCell/awesome-ai-red-teaming/stargazers)
 
 **A field guide for red teaming AI systems and the applications around them, where entries earn their place by being checkable.**
 
@@ -188,6 +188,6 @@ The bar for entries, and what gets removed, is in [CONTRIBUTING.md](CONTRIBUTING
 
 ## License
 
-MIT. Curated by Gavin Blacklock ([Epsilon0xCell](https://github.com/Epsilon0xCell)). Links belong to their projects; the curation, the checks, and the verification notes are the original work here.
+The list is released under [CC0 1.0 Universal](LICENSE): copy it, build on it, no permission needed. The runnable checks under [`checks/`](checks/) stay under MIT; see the header in each script. Curated by Gavin Blacklock ([Epsilon0xCell](https://github.com/Epsilon0xCell)). Links belong to their projects; the curation and the verification notes are the original work here.
 
 [Back to top](#contents)

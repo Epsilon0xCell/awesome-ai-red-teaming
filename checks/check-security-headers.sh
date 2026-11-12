@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# MIT License. Copyright (c) 2026 Gavin Blacklock. The list in this repo is CC0; these checks are MIT.
 # Check the security headers of a site you own or are authorised to test.
 # Usage: ./check-security-headers.sh https://example.com
 set -euo pipefail
