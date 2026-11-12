@@ -14,11 +14,14 @@ For authorised testing only: your own applications, labs, CTFs, and engagements 
 - [Recon and attack-surface mapping](#recon-and-attack-surface-mapping)
 - [Web and API testing](#web-and-api-testing)
 - [LLM and agent red teaming](#llm-and-agent-red-teaming)
+- [Guardrails and evaluation](#guardrails-and-evaluation)
+- [Benchmarks and datasets](#benchmarks-and-datasets)
 - [Privilege escalation](#privilege-escalation)
 - [Active Directory and cloud](#active-directory-and-cloud)
 - [Verification: is it actually a finding](#verification-is-it-actually-a-finding)
 - [Detection: what should have caught it](#detection-what-should-have-caught-it)
 - [Reporting](#reporting)
+- [Papers and research hubs](#papers-and-research-hubs)
 - [Learning paths](#learning-paths)
 - [Contributing](#contributing)
 - [License](#license)
@@ -63,11 +66,47 @@ Verify: the checks in [`checks/`](checks/) cover headers, TLS expiry, and expose
 
 - [OWASP Top 10 for LLM Applications](https://genai.owasp.org/llm-top-10/): the risk taxonomy for LLM features, starting with prompt injection (LLM01). Use its category names in findings so vendors and maintainers share your vocabulary.
 - [garak](https://github.com/NVIDIA/garak): the LLM vulnerability scanner. Probes for injection, leakage, and jailbreak classes with repeatable runs you can cite as fixtures.
-- [PyRIT](https://github.com/Azure/PyRIT): Microsoft's automation framework for multi-turn red-team campaigns against models and agents, with scored datasets instead of anecdote.
+- [PyRIT](https://github.com/microsoft/PyRIT): Microsoft's automation framework for multi-turn red-team campaigns against models and agents, with scored datasets instead of anecdote.
 - [promptfoo](https://github.com/promptfoo/promptfoo): evaluation and red-team testing for prompts and agents that runs in CI, so a regression in a system prompt shows up as a failing test.
 - The skills pack built for this workflow: [ai-redteam-skills](https://github.com/Epsilon0xCell/ai-redteam-skills): counted recon, prompt-injection testing with controls, verification discipline, and detection pairing, as SKILL.md files an agent can follow step by step.
 
+- [DeepTeam](https://github.com/confident-ai/deepteam) - Red-teaming framework testing fifty-plus vulnerability classes with OWASP and NIST mappings; Confident AI, 3.1k stars.
+- [Giskard](https://github.com/Giskard-AI/giskard-oss) - Open-source testing library scanning models and agents for injection, hallucination, and bias; 5.9k stars, releases through 2026.
+- [AI-Infra-Guard](https://github.com/Tencent/AI-Infra-Guard) - Scans AI infrastructure, agents, and MCP servers for exploitable weaknesses; Tencent-maintained, 7.5k stars.
+- [mcp-scan](https://github.com/snyk/agent-scan) - Scans MCP configurations for tool poisoning, rug pulls, and cross-server shadowing; Invariant Labs, now Snyk agent-scan, 3.2k stars.
+- [SkillSpector](https://github.com/NVIDIA/SkillSpector) - Scans AI agent skills for malicious instructions before installation; NVIDIA-maintained, 25.7k stars.
+
 Verify: an injection result counts only when a real boundary breaks: unauthorised data read, an unauthorised action taken, or a developer constraint that protects someone else overridden. A compliant tone change is an observation, not a finding. Run the benign control in a fresh session before you believe any probe.
+
+[Back to top](#contents)
+
+## Guardrails and evaluation
+
+The defensive half of the same engagement: evaluation harnesses and runtime rails your findings get tested against. Start with Inspect AI; it is the harness the frontier labs build on.
+
+- [Inspect AI](https://github.com/UKGovernmentBEIS/inspect_ai) - Evaluation framework with tasks, solvers, scorers, and sandboxed agent runs; UK AI Security Institute, 3.2k stars.
+- [NeMo Guardrails](https://github.com/NVIDIA-NeMo/Guardrails) - Programmable Colang rails controlling input, dialog, retrieval, and output; NVIDIA-maintained, 7.5k stars.
+- [Guardrails AI](https://github.com/guardrails-ai/guardrails) - Composable validators checking structured model output before it reaches users; Apache-2.0, 7.6k stars.
+- [LLM Guard](https://github.com/protectai/llm-guard) - Scanner battery screening inputs and outputs for injection, PII, and secrets; Protect AI, 3.2k stars.
+- [DeepEval](https://github.com/confident-ai/deepeval) - Pytest-style evaluation framework with fifty-plus metrics for outputs and agents; Confident AI, 19.5k stars.
+- [OpenAI Guardrails](https://github.com/openai/openai-guardrails-python) - Input, output, and tool guardrails for the Agents SDK; OpenAI-maintained, the vendor reference implementation.
+- [Purple Llama](https://github.com/meta-llama/PurpleLlama) - Open guard stack with Llama Guard classifiers, Prompt Guard, and LlamaFirewall; Meta-maintained, 4.5k stars.
+- [Microsoft Agent Governance Toolkit](https://github.com/microsoft/agent-governance-toolkit) - Runtime policy enforcement, agent identity, and sandboxing for agent frameworks; Microsoft, released April 2026, MIT.
+- [Petri](https://github.com/meridianlabs-ai/inspect_petri) - Automated behavioural auditor probing models for deception, sycophancy, and power-seeking; Anthropic-born, now Meridian Labs, 1.4k stars.
+
+[Back to top](#contents)
+
+## Benchmarks and datasets
+
+Fixed targets with published scoring, so a claim about a model or a defence can be re-run by someone else. HarmBench and JailbreakBench are the default pair; the agent benchmarks below them cover tool use.
+
+- [HarmBench](https://www.harmbench.org/) - Standardised automated red-teaming framework with 510 behaviours and classifier grading; Center for AI Safety, ICML 2024.
+- [JailbreakBench](https://jailbreakbench.github.io/) - Open jailbreak robustness benchmark and leaderboard scoring harmful and benign behaviours; NeurIPS 2024 Datasets and Benchmarks track.
+- [AgentHarm](https://arxiv.org/abs/2410.09024) - Benchmark of 110 malicious agent tasks across eleven harm categories; Gray Swan AI with UK AISI, ICLR 2025.
+- [AgentDojo](https://github.com/ethz-spylab/agentdojo) - Dynamic environment testing indirect prompt injection against tool-using agents; ETH Zurich SPY Lab, NeurIPS 2024.
+- [InjecAgent](https://github.com/uiuc-kang-lab/InjecAgent) - Static benchmark of 1,054 indirect-injection cases across seventeen user tools; UIUC Kang Lab, ACL 2024 Findings.
+- [CyberSecEval](https://github.com/meta-llama/PurpleLlama/tree/main/CybersecurityBenchmarks) - Cyber-risk evaluation suite covering insecure code, attack assistance, and prompt injection; Meta, ships inside Purple Llama.
+- [SocialHarmBench](https://huggingface.co/datasets/psyonp/SocialHarmBench) - Sociopolitical-harm prompt set spanning thirty-four countries beyond US-centric harm categories; ICLR 2026, hosted on Hugging Face.
 
 [Back to top](#contents)
 
@@ -117,6 +156,18 @@ The standard this guide applies: reproduced, controlled, minimal, proven end to 
 - The report kit built alongside this guide: [vuln-report-kit](https://github.com/Epsilon0xCell/vuln-report-kit): templates plus a completeness validator that checks a draft for the sections reviewers actually reject reports for missing.
 
 A report that survives review states the boundary from the project's own documentation, the control beside the proof, the demonstrated impact in one sentence, and the ask in plain language. Score once, early, and move on.
+
+[Back to top](#contents)
+
+## Papers and research hubs
+
+The primary sources the tooling descends from, and the hubs where new attacks and defences appear first.
+
+- [Universal and Transferable Adversarial Attacks (GCG)](https://arxiv.org/abs/2307.15043) - The foundational gradient jailbreak later attacks position themselves against; Zou et al., CMU and CAIS, 2023.
+- [Crescendo](https://arxiv.org/abs/2404.01833) - Multi-turn jailbreak escalating gradually across turns until the model complies; Microsoft, USENIX Security 2025.
+- [Constitutional Classifiers](https://arxiv.org/abs/2501.18837) - Production defence cutting jailbreak success from 86 percent to 4.4 percent; Anthropic, arXiv 2501.18837, 2025.
+- [Anthropic Alignment Science Blog](https://alignment.anthropic.com) - Primary-source posts on sabotage evaluations, hidden objectives, and behavioural auditing; Anthropic, updated through 2026.
+- [Embrace The Red](https://embracethered.com) - Practitioner incident research documenting indirect prompt injection in shipping products; Johann Rehberger, updated through 2025.
 
 [Back to top](#contents)
 
