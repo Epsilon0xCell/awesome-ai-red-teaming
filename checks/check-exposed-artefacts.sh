@@ -6,8 +6,10 @@
 # Usage: ./check-exposed-artefacts.sh https://example.com
 set -euo pipefail
 BASE="${1:?usage: check-exposed-artefacts.sh <base-url>}"
+BASE="${BASE%/}"
 for p in /.git/HEAD /.env /swagger.json /openapi.yaml /actuator/health /robots.txt /sitemap.xml; do
-  code="$(curl -s -o /dev/null -w "%{http_code}" --max-time 15 "$BASE$p")"
+  code="$(curl -s -o /dev/null -w "%{http_code}" --max-time 15 "$BASE$p" || true)"
+  code="${code:-000}"
   echo "$code $p"
 done
 echo "Reminder: verify content by hand. A login page or an error template can answer 200."

@@ -2,6 +2,8 @@
 
 [![Release](https://img.shields.io/github/v/release/Epsilon0xCell/awesome-ai-red-teaming)](https://github.com/Epsilon0xCell/awesome-ai-red-teaming/releases) [![License: CC0 1.0](https://img.shields.io/badge/License-CC0_1.0-lightgrey)](LICENSE) [![Stars](https://img.shields.io/github/stars/Epsilon0xCell/awesome-ai-red-teaming)](https://github.com/Epsilon0xCell/awesome-ai-red-teaming/stargazers)
 
+![Awesome AI Red Teaming](banner.png)
+
 **A field guide for red teaming AI systems and the applications around them, where entries earn their place by being checkable.**
 
 Most awesome lists are bookmarks with better formatting. This one is built for the middle of an engagement: every section follows the order you actually work in, every entry says what you will be able to do after using it, and wherever the format allows, the entry carries its verification: an OWASP test ID, a fixture, or a runnable check. Three of those checks ship in this repo under [`checks/`](checks/), ready to run against your own systems.
