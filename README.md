@@ -1,5 +1,7 @@
 # Awesome AI Red Teaming
 
+[![Release](https://img.shields.io/github/v/release/Epsilon0xCell/awesome-ai-red-teaming)](https://github.com/Epsilon0xCell/awesome-ai-red-teaming/releases) [![License](https://img.shields.io/github/license/Epsilon0xCell/awesome-ai-red-teaming)](LICENSE) [![Stars](https://img.shields.io/github/stars/Epsilon0xCell/awesome-ai-red-teaming)](https://github.com/Epsilon0xCell/awesome-ai-red-teaming/stargazers)
+
 **A field guide for red teaming AI systems and the applications around them, where entries earn their place by being checkable.**
 
 Most awesome lists are bookmarks with better formatting. This one is built for the middle of an engagement: every section follows the order you actually work in, every entry says what you will be able to do after using it, and wherever the format allows, the entry carries its verification: an OWASP test ID, a fixture, or a runnable check. Three of those checks ship in this repo under [`checks/`](checks/), ready to run against your own systems.
@@ -18,6 +20,8 @@ For authorised testing only: your own applications, labs, CTFs, and engagements 
 - [Detection: what should have caught it](#detection-what-should-have-caught-it)
 - [Reporting](#reporting)
 - [Learning paths](#learning-paths)
+- [Contributing](#contributing)
+- [License](#license)
 
 ## Start here
 
@@ -25,6 +29,8 @@ For authorised testing only: your own applications, labs, CTFs, and engagements 
 - [MITRE ATT&CK](https://attack.mitre.org/): the shared taxonomy for tagging every technique you use, so your notes stay searchable and your detections map to something defenders already track.
 - [MITRE ATLAS](https://atlas.mitre.org/): the ATT&CK counterpart for AI systems. Tag LLM findings here, not in a private vocabulary.
 - [SecLists](https://github.com/danielmiessler/SecLists): the wordlists, payloads, and fuzzing strings every later section assumes you have. Specificity beats size; pick the smallest list that matches the target.
+
+[Back to top](#contents)
 
 ## Recon and attack-surface mapping
 
@@ -35,6 +41,8 @@ For authorised testing only: your own applications, labs, CTFs, and engagements 
 - [HackTricks](https://book.hacktricks.xyz/): per-service depth, reached for at the moment a service is in front of you. Paraphrase and verify against the live target; never paste blindly.
 
 Verify: the surface is mapped when you can state the count (hosts, services, endpoints) and every service carries a status of exhausted or unexplored. If you cannot state the count, the recon is not done.
+
+[Back to top](#contents)
 
 ## Web and API testing
 
@@ -49,6 +57,8 @@ Verify: the surface is mapped when you can state the count (hosts, services, end
 
 Verify: the checks in [`checks/`](checks/) cover headers, TLS expiry, and exposed artefact paths for any web target you own. A scanner hit becomes a candidate; the verification section below decides what it is worth.
 
+[Back to top](#contents)
+
 ## LLM and agent red teaming
 
 - [OWASP Top 10 for LLM Applications](https://genai.owasp.org/llm-top-10/): the risk taxonomy for LLM features, starting with prompt injection (LLM01). Use its category names in findings so vendors and maintainers share your vocabulary.
@@ -59,12 +69,16 @@ Verify: the checks in [`checks/`](checks/) cover headers, TLS expiry, and expose
 
 Verify: an injection result counts only when a real boundary breaks: unauthorised data read, an unauthorised action taken, or a developer constraint that protects someone else overridden. A compliant tone change is an observation, not a finding. Run the benign control in a fresh session before you believe any probe.
 
+[Back to top](#contents)
+
 ## Privilege escalation
 
 - [PEASS-ng](https://github.com/PEASS-ng/PEASS-ng): LinPEAS and WinPEAS for local enumeration. Lead generation only: verify every lead by hand before acting on it, and never let its output ordering set your priorities.
 - [GTFOBins](https://gtfobins.github.io/): which Unix binaries break out of restricted shells through sudo and SUID, checked against what your enumeration actually found.
 - [LOLBAS](https://lolbas-project.github.io/): the Windows counterpart: living-off-the-land binaries and scripts and what each can be made to do.
 - [hashcat](https://hashcat.net/hashcat/): the password cracker. Identify the hash mode first; the wrong mode is the most common wasted GPU hour.
+
+[Back to top](#contents)
 
 ## Active Directory and cloud
 
@@ -74,6 +88,8 @@ Verify: an injection result counts only when a real boundary breaks: unauthorise
 - [impacket](https://github.com/fortra/impacket): the protocol library underneath half the Windows tooling you will ever script.
 
 Verify: password policy arithmetic before any spray. Budget is the lockout threshold minus one per account per window, and username validation through Kerberos pre-authentication does not spend that budget.
+
+[Back to top](#contents)
 
 ## Verification: is it actually a finding
 
@@ -86,10 +102,14 @@ Verify: password policy arithmetic before any spray. Budget is the lockout thres
 
 The standard this guide applies: reproduced, controlled, minimal, proven end to end, and re-run from a fresh state, with the identical proof failing against the fixed version. Anything less is an unconfirmed candidate with the missing leg named.
 
+[Back to top](#contents)
+
 ## Detection: what should have caught it
 
 - The pairing discipline lives in [secure-coding-skills](https://github.com/Epsilon0xCell/secure-coding-skills) on the defensive side and in the `detection-pairing` skill of [ai-redteam-skills](https://github.com/Epsilon0xCell/ai-redteam-skills) on the offensive side: observable first, blind spot named by shape, a rule tested against the proof and against the benign control.
 - [Sliver](https://github.com/BishopFox/sliver): a maintained command-and-control framework whose own documentation of its network behaviour is a study in what defenders can and cannot see. Know your tooling's signature before you rely on its quiet.
+
+[Back to top](#contents)
 
 ## Reporting
 
@@ -98,6 +118,8 @@ The standard this guide applies: reproduced, controlled, minimal, proven end to 
 
 A report that survives review states the boundary from the project's own documentation, the control beside the proof, the demonstrated impact in one sentence, and the ask in plain language. Score once, early, and move on.
 
+[Back to top](#contents)
+
 ## Learning paths
 
 - [Hack The Box](https://www.hackthebox.com/): the lab platform this guide's workflow was sharpened on, from Starting Point upward.
@@ -105,10 +127,16 @@ A report that survives review states the boundary from the project's own documen
 - [0xdf](https://0xdf.gitlab.io/): written walkthroughs with the dead ends left in, which is where most of the teaching lives.
 - [ligolo-ng](https://github.com/nicocha30/ligolo-ng) and [chisel](https://github.com/jpillora/chisel): the pivoting tools for the moment a lab stops being one host, and the point where drawing the topology map becomes non-negotiable.
 
+[Back to top](#contents)
+
 ## Contributing
 
 The bar for entries, and what gets removed, is in [CONTRIBUTING.md](CONTRIBUTING.md). Quality over bulk, always: one verified entry beats twenty bookmarks.
 
+[Back to top](#contents)
+
 ## License
 
 MIT. Curated by Gavin Blacklock ([Epsilon0xCell](https://github.com/Epsilon0xCell)). Links belong to their projects; the curation, the checks, and the verification notes are the original work here.
+
+[Back to top](#contents)
