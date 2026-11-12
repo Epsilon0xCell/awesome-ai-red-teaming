@@ -1,5 +1,10 @@
 # Changelog
 
+## v0.3.0, 2026-11-12
+
+- Twenty-one further entries from the research pass's second half, each resolved to its canonical URL and live-checked: a new Standards and guidance section (the OWASP Agentic and MCP Top 10s, the OWASP GenAI Red Teaming Guide, and the NIST AI 100-2, AI 600-1, and AI RMF documents), three more Papers and research hubs entries (Simon Willison, Anthropic's Frontier Red Team, Microsoft's 100-products lessons), and three new closing sections: Courses and labs, CTFs and challenges, and Communities and newsletters.
+- Two supplement candidates were left out on verification: a Microsoft Security Blog EchoLeak post could not be verified to exist, and the PortSwigger LLM attacks topic page has no verifiable canonical URL (the Academy itself is already listed).
+
 ## v0.2.0, 2026-11-12
 
 - Twenty-six new entries from a sourced research pass, each live-checked on the release date: five offensive tools join LLM and agent red teaming, and three new sections land: Guardrails and evaluation (nine entries), Benchmarks and datasets (seven), and Papers and research hubs (five).

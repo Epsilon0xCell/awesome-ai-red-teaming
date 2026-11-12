@@ -11,6 +11,7 @@ For authorised testing only: your own applications, labs, CTFs, and engagements 
 ## Contents
 
 - [Start here](#start-here)
+- [Standards and guidance](#standards-and-guidance)
 - [Recon and attack-surface mapping](#recon-and-attack-surface-mapping)
 - [Web and API testing](#web-and-api-testing)
 - [LLM and agent red teaming](#llm-and-agent-red-teaming)
@@ -23,6 +24,9 @@ For authorised testing only: your own applications, labs, CTFs, and engagements 
 - [Reporting](#reporting)
 - [Papers and research hubs](#papers-and-research-hubs)
 - [Learning paths](#learning-paths)
+- [Courses and labs](#courses-and-labs)
+- [CTFs and challenges](#ctfs-and-challenges)
+- [Communities and newsletters](#communities-and-newsletters)
 - [Contributing](#contributing)
 - [License](#license)
 
@@ -32,6 +36,19 @@ For authorised testing only: your own applications, labs, CTFs, and engagements 
 - [MITRE ATT&CK](https://attack.mitre.org/): the shared taxonomy for tagging every technique you use, so your notes stay searchable and your detections map to something defenders already track.
 - [MITRE ATLAS](https://atlas.mitre.org/): the ATT&CK counterpart for AI systems. Tag LLM findings here, not in a private vocabulary.
 - [SecLists](https://github.com/danielmiessler/SecLists): the wordlists, payloads, and fuzzing strings every later section assumes you have. Specificity beats size; pick the smallest list that matches the target.
+
+[Back to top](#contents)
+
+## Standards and guidance
+
+The frameworks findings get named and graded against. OWASP owns the AI-specific lists; NIST owns the risk vocabulary.
+
+- [OWASP Top 10 for Agentic Applications](https://genai.owasp.org/2025/12/09/owasp-top-10-for-agentic-applications-the-benchmark-for-agentic-security-in-the-age-of-autonomous-ai/) - Ten agent risks with ASI codes, from goal hijack to rogue agents; OWASP GenAI Security Project, December 2025.
+- [OWASP MCP Top 10](https://owasp.org/projects/mcp-top-10) - Ten risks specific to Model Context Protocol servers, tools, and transports; OWASP project, companion to the LLM list.
+- [OWASP GenAI Red Teaming Guide](https://genai.owasp.org/resource/genai-red-teaming-guide/) - Methodology for planning, scoping, and running red-team exercises against GenAI systems; OWASP GenAI Security Project.
+- [NIST AI 100-2e2025](https://csrc.nist.gov/pubs/ai/100/2/e2025/final) - The adversarial machine learning taxonomy: attacks and mitigations in shared terminology; NIST, 2025 edition.
+- [NIST AI 600-1](https://doi.org/10.6028/NIST.AI.600-1) - Generative AI profile naming twelve risks with suggested actions per category; NIST, July 2024.
+- [NIST AI Risk Management Framework](https://doi.org/10.6028/NIST.AI.100-1) - Govern, Map, Measure, Manage: the voluntary structure AI risk programs hang on; NIST AI 100-1, 2023.
 
 [Back to top](#contents)
 
@@ -168,6 +185,9 @@ The primary sources the tooling descends from, and the hubs where new attacks an
 - [Constitutional Classifiers](https://arxiv.org/abs/2501.18837) - Production defence cutting jailbreak success from 86 percent to 4.4 percent; Anthropic, arXiv 2501.18837, 2025.
 - [Anthropic Alignment Science Blog](https://alignment.anthropic.com) - Primary-source posts on sabotage evaluations, hidden objectives, and behavioural auditing; Anthropic, updated through 2026.
 - [Embrace The Red](https://embracethered.com) - Practitioner incident research documenting indirect prompt injection in shipping products; Johann Rehberger, updated through 2025.
+- [Simon Willison's Weblog](https://simonwillison.net) - Running primary-source analysis of prompt injection and agent security as it breaks; he named the attack class in 2022.
+- [Anthropic Frontier Red Team](https://www.anthropic.com/research/team/frontier-red-team) - The team page and publications behind Anthropic's frontier-model red teaming; Anthropic, posts through 2026.
+- [Lessons from Red Teaming 100 Generative AI Products](https://www.microsoft.com/security/blog/2025/01/13/3-takeaways-from-red-teaming-100-generative-ai-products/) - Eight lessons from a hundred product red teams, including that gradients are unnecessary; Microsoft AI Red Team, January 2025.
 
 [Back to top](#contents)
 
@@ -177,6 +197,39 @@ The primary sources the tooling descends from, and the hubs where new attacks an
 - [IppSec](https://ippsec.rocks/): searchable walkthrough videos indexed by service and technique. Search it when stuck, by the service in front of you.
 - [0xdf](https://0xdf.gitlab.io/): written walkthroughs with the dead ends left in, which is where most of the teaching lives.
 - [ligolo-ng](https://github.com/nicocha30/ligolo-ng) and [chisel](https://github.com/jpillora/chisel): the pivoting tools for the moment a lab stops being one host, and the point where drawing the topology map becomes non-negotiable.
+
+[Back to top](#contents)
+
+## Courses and labs
+
+Structured practice with a curriculum behind it, as opposed to the open challenges in the next section.
+
+- [HackAPrompt](https://www.hackaprompt.com/) - Global prompt-injection competition whose dataset doubles as attack training data; run by Learn Prompting.
+- [AI Red Teaming Playground Labs](https://github.com/microsoft/ai-red-teaming-playground-labs) - Hands-on labs for practising attacks against small local AI systems; Microsoft AI Red Team, open source.
+- [HackTheBox AI Red Teamer Path](https://academy.hackthebox.com/path/preview/ai-red-teamer) - Twelve-module job-role path ending in the COAE certification exam; built with Google, aligned to SAIF.
+
+[Back to top](#contents)
+
+## CTFs and challenges
+
+Open arenas and games: no curriculum, a target, a scoreboard, and other players.
+
+- [Gandalf](https://gandalf.lakera.ai) - The level-by-level password-extraction game that teaches prompt injection by doing; Lakera, free in the browser.
+- [Gray Swan Arena](https://app.grayswan.ai/arena/about) - Competitive red-teaming arena with sponsored challenges against frontier models; Gray Swan, backed by UK AISI and frontier labs.
+- [Crucible](https://crucible.dreadnode.io) - Challenge platform of scored AI security scenarios, from injection to agent abuse; Dreadnode, free to play.
+- [Tensor Trust](https://tensortrust.ai) - Attack-and-defend prompt game whose player data became a robustness benchmark; UC Berkeley researchers.
+- [Prompt Airlines](https://promptairlines.com) - Five-challenge CTF about talking an airline chatbot into a free flight; Wiz Research, free.
+
+[Back to top](#contents)
+
+## Communities and newsletters
+
+Where practitioners compare notes between engagements, and where new techniques surface before they are papers.
+
+- [AI Village](https://discord.com/invite/GX5fhfT) - The DEF CON village for AI security, with year-round challenges in its Discord; AI Village, community-run.
+- [tl;dr sec](https://tldrsec.com) - Weekly security newsletter with a standing AppSec and AI security beat; Clint Gibler, free every Thursday.
+- [CloudSecList](https://cloudseclist.com) - Weekly cloud security newsletter tracking AWS, Azure, GCP, and Kubernetes risk; community-curated, free.
+- [OWASP GenAI Security Project](https://owasp.org/projects/genai-security) - The project home behind the LLM, Agentic, and MCP lists, with community channels; OWASP, open participation.
 
 [Back to top](#contents)
 
